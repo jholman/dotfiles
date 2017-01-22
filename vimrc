@@ -1,12 +1,14 @@
 
 " HERE WE HAVE SOME VUNDLE STUFF
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'     " let Vundle manage Vundle, required
+set nocompatible                    " required.  be iMproved
+filetype off                        " required.
+set rtp+=~/.vim/bundle/Vundle.vim   " required.  set the runtime path to include Vundle
+call vundle#begin()                 " required.
+Plugin 'VundleVim/Vundle.vim'       " required.  let Vundle manage Vundle
+
 Plugin 'rust-lang/rust.vim'
-call vundle#end()            " required
+
+call vundle#end()                   " required.
 " END OF VUNDLE STUFF
 
 
@@ -18,7 +20,7 @@ set modeline
 color elflord
 
 
-set tw=100           " I'm not really sure what I want my default to be
+set tw=120           " I'm not really sure what I want my default to be
 
 
 " Oh god, the tab/space/indent business.
@@ -27,14 +29,14 @@ set tw=100           " I'm not really sure what I want my default to be
 "    I think that maybe this is all done for free in the filetype plugin?
 
 set shiftwidth=2	"  num of spaces used when shifting (using > or <)
-"set smarttab		"  use 'shiftwidth' for BeginLine tab insertion (vs sts/ts)
-set expandtab		"  use spaces when <Tab> is inserted
+"set smarttab		  "  use 'shiftwidth' for BeginLine tab insertion (vs sts/ts)
+set expandtab		  "  use spaces when <Tab> is inserted
 set softtabstop=2	"  number of spaces that <Tab> uses while editing
-set tabstop=2		"  number of spaces that <Tab> in file uses
+set tabstop=2		  "  number of spaces that <Tab> in file uses
 
 "set autoindent		"  take indent for new line from previous line
 "set smartindent	"  smart autoindenting for C programs
-"set cindent		"  do C program indenting
+"set cindent		  "  do C program indenting
 
 set hlsearch
 set history=1000
