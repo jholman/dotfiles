@@ -25,7 +25,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-shopt -s globstar
+#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\n${debian_chroot:+($debian_chroot)} \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='\n${debian_chroot:+($debian_chroot)} \u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -83,6 +83,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -123,19 +126,33 @@ fi
 export VISUAL=vi
 export EDITOR=vi
 
+
+# Fuck Debian's idiotic opinionated color-prompt bullshit.
+# I've decided to put this down here to make sure ALL my edits are down here.
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then	# this is their code to check for color support
+    # color prompt
+    PS1='\n${debian_chroot:+($debian_chroot)} \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    # shitty prompt
+    PS1='\n${debian_chroot:+($debian_chroot)} \u@\h:\w\$ '
+fi
+
 # set PATH so it includes user's private bin if it exists
 # TODO: check whether this is double-executing with .profile
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s globstar
 
 # reference: http://linuxcommando.blogspot.ca/2009/05/open-file-from-command-line-using-its.html
 # alternatives: gnome-open , kde-open
 alias open=xdg-open
 
 alias webservethis="python -m SimpleHTTPServer 8000"
-
+alias makesshwork="eval \"$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"
 
 # I'm really unsure about this one.  I hate pyc files in my projects, tho.
 export PYTHONDONTWRITEBYTECODE=i_hate_pyc_files   # if set to not-empty string, disables .pyc and .pyo
@@ -143,7 +160,5 @@ export PYTHONDONTWRITEBYTECODE=i_hate_pyc_files   # if set to not-empty string, 
 
 export NVM_DIR="/home/jholman/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-alias makesshwork="eval \"$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"
