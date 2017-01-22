@@ -152,7 +152,7 @@ shopt -s globstar
 alias open=xdg-open
 
 alias webservethis="python -m SimpleHTTPServer 8000"
-alias makesshwork="eval \"$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"
+alias makesshwork="eval \"$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"   # TODO: how do ssh-agent and ssh-add work?
 
 # I'm really unsure about this one.  I hate pyc files in my projects, tho.
 export PYTHONDONTWRITEBYTECODE=i_hate_pyc_files   # if set to not-empty string, disables .pyc and .pyo
