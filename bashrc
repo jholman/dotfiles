@@ -151,7 +151,7 @@ shopt -s globstar
 # alternatives: gnome-open , kde-open
 alias open=xdg-open
 
-alias webservethis="python -m SimpleHTTPServer 8000"
+alias webservethis="python -m SimpleHTTPServer 8000 > webservelog.txt"
 alias makesshwork="eval \"$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"   # TODO: how do ssh-agent and ssh-add work?
 
 # I'm really unsure about this one.  I hate pyc files in my projects, tho.
