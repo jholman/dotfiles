@@ -131,10 +131,10 @@ export EDITOR=vi
 # I've decided to put this down here to make sure ALL my edits are down here.
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then	# this is their code to check for color support
     # color prompt
-    PS1='\n${debian_chroot:+($debian_chroot)} \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\n${debian_chroot:+($debian_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     # shitty prompt
-    PS1='\n${debian_chroot:+($debian_chroot)} \u@\h:\w\$ '
+    PS1='\n${debian_chroot:+($debian_chroot) }\u@\h:\w\$ '
 fi
 
 # set PATH so it includes user's private bin if it exists
