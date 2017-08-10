@@ -43,6 +43,8 @@ set history=1000
 set undolevels=1000
 set noswapfile
 
+set number      " I give up on being a wizard; lo I am fallen
+
 " On  opening file, move cursor to last known position
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
