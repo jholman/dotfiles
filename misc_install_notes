@@ -1,0 +1,7 @@
+
+
+After installing postgres, remember to 
+  * create a role in the DB for myself, probably like this:
+        `createuser jholman --superuser`
+  * fiddle with pg_hba.conf as necessary
+    * maybe add "local all all trust" if you wanna

@@ -163,3 +163,4 @@ export NVM_DIR="/home/jholman/.nvm"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # alias scheme='rlwrap scheme'
+alias trashfire='sudo -u mongodb mongod --config /etc/mongodb.conf'
