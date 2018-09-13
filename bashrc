@@ -142,6 +142,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 
+    # see https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks#Auto-Completion
     if [ -f $HOME/bin/git-completion.bash ] ; then
       source $HOME/bin/git-completion.bash
     fi
