@@ -45,6 +45,8 @@ set noswapfile
 
 set number      " I give up on being a wizard; lo I am fallen
 
+set wildmenu      " nicer viewing of partial results when tab-completing filenames (ty Don!)
+
 " On  opening file, move cursor to last known position
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |

@@ -141,6 +141,10 @@ fi
 # TODO: check whether this is double-executing with .profile
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
+
+    if [ -f $HOME/bin/git-completion.bash ] ; then
+      source $HOME/bin/git-completion.bash
+    fi
 fi
 
 shopt -s histappend
@@ -151,7 +155,7 @@ shopt -s globstar
 # alternatives: gnome-open , kde-open
 alias open=xdg-open
 
-alias webservethis="python -m SimpleHTTPServer 8000 > webservelog.txt"
+alias webservethis="python -m SimpleHTTPServer 8000 >> ~/webservelog.txt"
 alias makesshwork="eval \"\$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"   # TODO: how do ssh-agent and ssh-add work?
 
 # I'm really unsure about this one.  I hate pyc files in my projects, tho.
@@ -163,4 +167,4 @@ export NVM_DIR="/home/jholman/.nvm"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # alias scheme='rlwrap scheme'
-alias trashfire='sudo -u mongodb mongod --config /etc/mongodb.conf'
+alias trashfire='echo "need sudo to start as suitable user, feel free to read the alias" && sudo -u mongodb mongod --config /etc/mongodb.conf'
