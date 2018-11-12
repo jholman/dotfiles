@@ -20,7 +20,9 @@ set modeline
 color elflord
 
 
-set tw=120           " I'm not really sure what I want my default to be
+set tw=100           " I'm not really sure what I want my default to be
+
+set encoding=utf-8
 
 
 " Oh god, the tab/space/indent business.
