@@ -49,6 +49,17 @@ set number      " I give up on being a wizard; lo I am fallen
 
 set wildmenu      " nicer viewing of partial results when tab-completing filenames (ty Don!)
 
+
+" an attempt from https://stackoverflow.com/questions/5700389/using-vims-persistent-undo
+if has('persistent_undo')
+  call system('mkdir -p ~/.vim/.undo')
+  set undofile
+  set undodir=~/.vim/.undo//
+endif
+
+
+
+
 " On  opening file, move cursor to last known position
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
