@@ -152,12 +152,18 @@ shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
 
+
+# immediate writes to .bash_history
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 # reference: http://linuxcommando.blogspot.ca/2009/05/open-file-from-command-line-using-its.html
 # alternatives: gnome-open , kde-open
 alias open=xdg-open
 
 alias webservethis="python -m SimpleHTTPServer 8000 >> ~/webservelog.txt"
 alias makesshwork="eval \"\$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"   # TODO: how do ssh-agent and ssh-add work?
+
+alias diffy="diff -y"
 
 # I'm really unsure about this one.  I hate pyc files in my projects, tho.
 export PYTHONDONTWRITEBYTECODE=i_hate_pyc_files   # if set to not-empty string, disables .pyc and .pyo
