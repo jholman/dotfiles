@@ -1,14 +1,21 @@
 
 " HERE WE HAVE SOME VUNDLE STUFF
-set nocompatible                    " required.  be iMproved
-filetype off                        " required.
-set rtp+=~/.vim/bundle/Vundle.vim   " required.  set the runtime path to include Vundle
-call vundle#begin()                 " required.
-Plugin 'VundleVim/Vundle.vim'       " required.  let Vundle manage Vundle
+" To install Vundle, the obvious thing to do is:
+"     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"     vim +PluginInstall +qall
+set nocompatible                                      " vundle-required.  be iMproved
+if isdirectory(expand('~/.vim/bundle/Vundle.vim'))    " my idea
+  filetype off                                        " vundle-required.
+  set rtp+=~/.vim/bundle/Vundle.vim                   " vundle-required.  set the runtime path to include Vundle
+  call vundle#begin()                                 " vundle-required.
+  Plugin 'VundleVim/Vundle.vim'                       " vundle-required.  let Vundle manage Vundle
 
-Plugin 'rust-lang/rust.vim'
+  Plugin 'rust-lang/rust.vim'
 
-call vundle#end()                   " required.
+  call vundle#end()                                   " vundle required.
+else
+  echo "WARN: Vundle is not installed.  Hope that's cool.  Vundle plugins aren't enabled."
+endif                                                 " my idea
 " END OF VUNDLE STUFF
 
 
