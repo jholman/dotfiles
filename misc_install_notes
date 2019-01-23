@@ -1,7 +1,10 @@
 
 
-After installing postgres, remember to 
+Wanna use postgres?  After installing, remember to
   * create a role in the DB for myself, probably like this:
-        `createuser jholman --superuser`
+        `sudo su postgres -c 'createuser jholman --superuser' `
+  * optionally create a self-named DB to make `psql` easier
+	`createdb jholman`
   * fiddle with pg_hba.conf as necessary
-    * maybe add "local all all trust" if you wanna
+    * maybe add "local all all trust" if you wanna let all users log in as anyone (via unix sockets)
+    * but then again, it already has "local all all peer", which is enough for jholman to log in as jholman

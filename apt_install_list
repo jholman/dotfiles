@@ -1,7 +1,7 @@
 
-apt-get install tree git python2.7 python-pip python3 python3-pip
-apt-get install vim vim-doc man-db build-essential bash-completion
-apt-get install openssh-client netpbm rlwrap entr
+sudo apt-get install tree git python2.7 python-pip python3 python3-pip
+sudo apt-get install vim vim-doc man-db build-essential bash-completion
+sudo apt-get install openssh-client netpbm rlwrap entr
+sudo apt-get install postgresql postgresql-doc
 
-# postgres?
 
