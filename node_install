@@ -1,0 +1,16 @@
+# First install nvm
+curl -O- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+# Then install a recent nodejs
+nvm install --lts --latest-npm
+
+# I'd like to install yarn as well
+curl -o- -L https://yarnpkg.com/install.sh | bash       # there alternately exists an apt package
+
+# Maybe tweak yarn a bit
+yarn config set init-version '0.1.0'
+yarn config set init-private true
+yarn config set init-license "UNLICENSED"
+
+# Now, what global packages are worth installing?
+npm install -g nodemon
