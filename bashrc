@@ -178,3 +178,10 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # alias scheme='rlwrap scheme'
 alias trashfire='echo "need sudo to start as suitable user, feel free to read the alias" && sudo -u mongodb mongod --config /etc/mongodb.conf'
+
+# Let's experiment with using https://github.com/nvbn/thefuck
+which fuck
+if [ $? -eq 0 ]
+then
+  eval $(thefuck --alias)
+fi
