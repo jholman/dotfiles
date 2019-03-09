@@ -94,7 +94,7 @@ alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -160,6 +160,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # alternatives: gnome-open , kde-open
 alias open=xdg-open
 
+alias diarytoday='touch ~/diary/`date +%Y-%m-%d`.md && vim -p `ls ~/diary/2019-* | sort | tail -n 5` +tablast && rm `find ~/diary -empty -regex ".*/2019-[0-9][0-9]-[0-9][0-9].md"`'
 alias webservethis="python -m SimpleHTTPServer 8000 >> ~/webservelog.txt"
 alias makesshwork="eval \"\$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"   # TODO: how do ssh-agent and ssh-add work?
 
@@ -186,4 +187,11 @@ which fuck > /dev/null
 if [ $? -eq 0 ]
 then
   eval $(thefuck --alias)
+fi
+
+
+
+# Hey, maybe I have some bashrc-like stuff that is machine-specific.
+if [ -f ~/.local_bashrc ]; then
+    . ~/.local_bashrc
 fi
