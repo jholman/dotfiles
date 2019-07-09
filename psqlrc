@@ -1,0 +1,5 @@
+\set AUTOCOMMIT off
+\set ON_ERROR_ROLLBACK interactive
+
+-- TODO: read https://www.postgresql.org/docs/current/app-psql.html more, and
+-- maybe use a prompt that knows how to change terminal title
