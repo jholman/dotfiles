@@ -1,9 +1,11 @@
 
 sudo apt-get install tree git python2.7 python-pip python3 python3-pip
+sudo apt-get install youtube-dl audacious
 sudo apt-get install vim vim-doc man-db build-essential bash-completion
 sudo apt-get install openssh-client netpbm rlwrap entr
-sudo apt-get install postgresql postgresql-doc
+sudo apt-get install postgresql postgresql-doc jq
+sudo apt-get install libtiff-tools gdal-bin
 
 
-sudo pip3 install thefuck
+sudo pip3 install thefuck awscli
 

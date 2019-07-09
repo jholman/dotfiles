@@ -27,7 +27,7 @@ set modeline
 color elflord
 
 
-set tw=100           " I'm not really sure what I want my default to be
+set tw=80           " I'm not really sure what I want my default to be
 
 set encoding=utf-8
 
@@ -56,6 +56,7 @@ set number      " I give up on being a wizard; lo I am fallen
 
 set wildmenu      " nicer viewing of partial results when tab-completing filenames (ty Don!)
 
+set title       " this being set on should cause the terminal tab title to update
 
 " an attempt from https://stackoverflow.com/questions/5700389/using-vims-persistent-undo
 if has('persistent_undo')

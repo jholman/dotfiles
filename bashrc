@@ -127,11 +127,13 @@ export VISUAL=vi
 export EDITOR=vi
 
 
+
 # Fuck Debian's idiotic opinionated color-prompt bullshit.
 # I've decided to put this down here to make sure ALL my edits are down here.
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then	# this is their code to check for color support
     # color prompt
-    PS1='\n${debian_chroot:+($debian_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    # also includes \[\033]0;\w\a\] for changing terminal title
+    PS1='\n${debian_chroot:+($debian_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ \[\033]0;\w\a\]'
 else
     # shitty prompt
     PS1='\n${debian_chroot:+($debian_chroot) }\u@\h:\w\$ '
@@ -154,13 +156,33 @@ shopt -s globstar
 
 
 # immediate writes to .bash_history
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+PROMPT_COMMAND='history -a;'
+#PROMPT_COMMAND='history -a; echo -en "\033]0;${PWD/#$HOME/'"'~'"'}\a"'       # this is a working-but-complicated terminal title scheme, alternative to the PS1 way
 
 # reference: http://linuxcommando.blogspot.ca/2009/05/open-file-from-command-line-using-its.html
 # alternatives: gnome-open , kde-open
 alias open=xdg-open
 
-alias diarytoday='touch ~/diary/`date +%Y-%m-%d`.md && vim -p `ls ~/diary/2019-* | sort | tail -n 5` +tablast && rm `find ~/diary -empty -regex ".*/2019-[0-9][0-9]-[0-9][0-9].md"`'
+#alias diarytoday='touch ~/diary/`date +%Y-%m-%d`.md && vim -p `ls ~/diary/2019-* | sort | tail -n 5` +tablast && rm `find ~/diary -empty -regex ".*/2019-[0-9][0-9]-[0-9][0-9].md"`'
+diarytoday() {
+  local diarydir=$(echo ~/diary)
+  local day=$(date +%Y-%m-%d)
+  local month=$(date +%Y-%m)
+  local markdown='.md'
+  local day_file=$(echo $diarydir/$day$markdown)
+  local month_file=$(echo $diarydir/$month$markdown)
+  local last_four=$(ls $diarydir/$(date +%Y)-[0-9][0-9]-[0-9][0-9].md | sort | tail -n 4)
+  local last_five=$(ls $diarydir/$(date +%Y)-[0-9][0-9]-[0-9][0-9].md | sort | tail -n 5)
+  if [ -e $day_file ]; then
+    vim -p $month_file $last_five +tablast
+  else
+    vim -p $month_file $last_four $day_file +tablast
+  fi
+  find $diarydir -empty -regex ".*/20[0-9][0-9]-[0-9][0-9]-[0-9][0-9].md" -exec rm {} \;
+  # [[ ! -e $day_file ]] && last_file=$day_file
+  # vim -p $month_file `ls ~/diary/2019-* | sort | tail -n 5` $last_file +tablast && find ~/diary -empty -regex ".*/2019-[0-9][0-9]-[0-9][0-9].md" -exec rm {} \;
+}
+
 alias webservethis="python -m SimpleHTTPServer 8000 >> ~/webservelog.txt"
 alias makesshwork="eval \"\$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"   # TODO: how do ssh-agent and ssh-add work?
 
