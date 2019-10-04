@@ -126,6 +126,8 @@ fi
 export VISUAL=vi
 export EDITOR=vi
 
+umask 022
+
 
 
 # Fuck Debian's idiotic opinionated color-prompt bullshit.
@@ -157,6 +159,9 @@ fi
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
+
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 
 # immediate writes to .bash_history
