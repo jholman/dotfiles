@@ -139,6 +139,10 @@ else
     PS1='\n${debian_chroot:+($debian_chroot) }\u@\h:\w\$ '
 fi
 
+
+### For reference, here's a PS1 for prod:
+### PS1='\n\[\033[01;41m\]** PROD **\[\033[00m\] ${debian_chroot:+($debian_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ \[\033]0;** PROD ** \w\a\]'
+
 # set PATH so it includes user's private bin if it exists
 # TODO: check whether this is double-executing with .profile
 if [ -d "$HOME/bin" ] ; then
@@ -170,7 +174,7 @@ diarytoday() {
   local month=$(date +%Y-%m)
   local markdown='.md'
   local day_file=$(echo $diarydir/$day$markdown)
-  local month_file=$(echo $diarydir/$month$markdown)
+  #local month_file=$(echo $diarydir/$month$markdown)
   local last_four=$(ls $diarydir/$(date +%Y)-[0-9][0-9]-[0-9][0-9].md | sort | tail -n 4)
   local last_five=$(ls $diarydir/$(date +%Y)-[0-9][0-9]-[0-9][0-9].md | sort | tail -n 5)
   if [ -e $day_file ]; then
@@ -211,6 +215,8 @@ then
   eval $(thefuck --alias)
 fi
 
+# TODO: read https://superuser.com/questions/257605/how-to-center-search-results-in-less-instead-of-moving-matched-line-to-top-of-t
+export LESS='-iMFRXj.5'
 
 
 # Hey, maybe I have some bashrc-like stuff that is machine-specific.
