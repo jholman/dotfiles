@@ -156,6 +156,10 @@ if [ -d "$HOME/bin" ] ; then
     fi
 fi
 
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
