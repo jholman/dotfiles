@@ -5,6 +5,8 @@ sudo apt-get install vim vim-doc man-db build-essential bash-completion
 sudo apt-get install openssh-client netpbm rlwrap entr
 sudo apt-get install postgresql postgresql-doc jq
 sudo apt-get install libtiff-tools gdal-bin
+sudo apt-get install yarn
+
 
 
 sudo pip3 install thefuck awscli

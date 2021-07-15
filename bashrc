@@ -196,7 +196,7 @@ diarytoday() {
   # vim -p $month_file `ls ~/diary/2019-* | sort | tail -n 5` $last_file +tablast && find ~/diary -empty -regex ".*/2019-[0-9][0-9]-[0-9][0-9].md" -exec rm {} \;
 }
 
-alias webservethis="python -m SimpleHTTPServer 8000 >> ~/webservelog.txt"
+alias webservethis="python -m SimpleHTTPServer 8000 >> ~/webservelog.txt 2>&1"
 alias makesshwork="eval \"\$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"   # TODO: how do ssh-agent and ssh-add work?
 
 alias diffy="diff -y"
