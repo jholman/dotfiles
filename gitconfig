@@ -1,6 +1,6 @@
 [user]
-	email = jholman12@bcit.ca
 	name = "Jeremy Holman"
+	email = "jeremy.holman@gmail.com"
 
 [push]
 	default = matching

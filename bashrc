@@ -135,10 +135,10 @@ umask 022
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then	# this is their code to check for color support
     # color prompt
     # also includes \[\033]0;\w\a\] for changing terminal title
-    PS1='\n${debian_chroot:+($debian_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ \[\033]0;\w\a\]'
+    PS1='\n${debian_chroot:+($debian_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ \[\033]0;\w\a\]'
 else
     # shitty prompt
-    PS1='\n${debian_chroot:+($debian_chroot) }\u@\h:\w\$ '
+    PS1='\n${debian_chroot:+($debian_chroot) }\u@\h:\w\n\$ '
 fi
 
 
@@ -196,7 +196,7 @@ diarytoday() {
   # vim -p $month_file `ls ~/diary/2019-* | sort | tail -n 5` $last_file +tablast && find ~/diary -empty -regex ".*/2019-[0-9][0-9]-[0-9][0-9].md" -exec rm {} \;
 }
 
-alias webservethis="python -m SimpleHTTPServer 8000 >> ~/webservelog.txt 2>&1"
+alias webservethis="echo 'http://localhost:8000' && python -m SimpleHTTPServer 8000 >> ~/webservelog.txt 2>&1"
 alias makesshwork="eval \"\$(ssh-agent -s)\"; ssh-add ~/.ssh/*rsa"   # TODO: how do ssh-agent and ssh-add work?
 
 alias diffy="diff -y"

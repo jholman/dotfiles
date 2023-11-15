@@ -4,6 +4,6 @@
 
 init-license UNLICENSED
 init-private true
+init-type module
 init-version "0.1.0"
-init-type "module"
-lastUpdateCheck 1624554264406
+lastUpdateCheck 1700032154227

@@ -3,12 +3,25 @@
 ## This file should be linked to ~/.ssh/config
 
 
+
 Host github.com
     IdentityFile ~/.ssh/github_id_rsa
+
+Host BCIT-github.com
+    Hostname github.com
+    IdentityFile ~/.ssh/github_jholmanbcit_id
 
 Host gist.github.com
     IdentityFile ~/.ssh/github_id_rsa
 
+Host BCIT-gist.github.com
+    Hostname gist.github.com
+    IdentityFile ~/.ssh/github_jholmanbcit_id
+
 
 Host bitbucket.com
     IdentityFile ~/.ssh/bbuck_id_rsa
+
+Host git.toptal.com
+    IdentityFile ~/.ssh/toptal_id_ed25519
+
