@@ -50,6 +50,8 @@ I assume it has been cloned to `~/wrks/dotfiles`
 
 THEN we can link up all the relevant dotfiles.
 
+Note that I'm copying old files to `~/nonconfigs` first.  Most of them won't exist and won't need copying, of course, so those `mv` commands will fail, which is fine.  Anyway, the point of this is to be able to diff them afterward, to look for stuff that might have been useful in the original, and not included in my dotfiles repo.  Once that's done, delete the `~/nonconfigs` directory and its contents.
+
 ```bash
 
 mkdir ~/nonconfigs
