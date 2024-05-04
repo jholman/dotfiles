@@ -1,13 +1,15 @@
 
-sudo apt-get install tree git python2.7 python-pip python3 python3-pip
-sudo apt-get install youtube-dl audacious
+#sudo apt-get install python2.7 python-pip
+sudo apt-get install python3 python3-pip
+sudo apt-get install tree git
+#sudo apt-get install youtube-dl audacious
 sudo apt-get install vim vim-doc man-db build-essential bash-completion
 sudo apt-get install openssh-client netpbm rlwrap entr
 sudo apt-get install postgresql postgresql-doc jq
-sudo apt-get install libtiff-tools gdal-bin
+#sudo apt-get install libtiff-tools gdal-bin
 sudo apt-get install yarn
 
-
+# maybe also:   gcc g++ imagemagick htop unzip
 
 sudo pip3 install thefuck awscli
 
