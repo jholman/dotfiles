@@ -22,6 +22,4 @@ Host BCIT-gist.github.com
 Host bitbucket.com
     IdentityFile ~/.ssh/bbuck_id_rsa
 
-Host git.toptal.com
-    IdentityFile ~/.ssh/toptal_id_ed25519
 
