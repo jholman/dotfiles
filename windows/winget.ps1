@@ -27,15 +27,15 @@ $packages = @(
     "sylikc.JPEGView",
     "AutoHotkey.AutoHotkey",
     "Obsidian.Obsidian",
-    "GIMP.GIMP",
+    "GIMP.GIMP.3",
     "KDE.Krita",
     "Inkscape.Inkscape",
     "Audacity.Audacity",
-    "mpv.MPV",
-    "dotPDNLLC.paintdotnet",
-    "wj32.ProcessHacker",
+    "mpv.net",
+    "dotPDN.paintdotnet",
+    "WinsiderSS.SystemInformer",
     "Discord.Discord",
-    "Audacious.Audacious"
+    "Audacious.MediaPlayer",
 )
 
 $log = @()
@@ -45,21 +45,20 @@ foreach ($pkg in $packages) {
     $installed = winget list --source winget --id $pkg | Select-String $pkg
 
     if ($installed) {
-        Write-Host "✔️  $pkg is already installed." -ForegroundColor Green
+        Write-Host "[OK]  $pkg is already installed." -ForegroundColor Green
         $log += "Already installed: $pkg"
     } else {
-        Write-Host "⬇️  Installing $pkg..." -ForegroundColor Cyan
+        Write-Host "[INSTALL] Installing $pkg..." -ForegroundColor Cyan
         winget install --accept-source-agreements --id $pkg
         if ($LASTEXITCODE -eq 0) {
-            Write-Host "✅ Installed $pkg successfully." -ForegroundColor Green
+            Write-Host "[DONE] Installed $pkg successfully." -ForegroundColor Green
             $log += "Installed: $pkg"
         } else {
-            Write-Host "❌ Failed to install $pkg." -ForegroundColor Red
+            Write-Host "[FAIL] Failed to install $pkg." -ForegroundColor Red
             $log += "FAILED: $pkg"
         }
     }
 }
-
 # Optionally dump the log afterward
 # $log | Out-File -Encoding utf8 "winget-install-log.txt"
 # Write-Host "Done. Log saved to winget-install-log.txt."
