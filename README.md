@@ -18,6 +18,7 @@ sudo apt-get install                      \
   python3 python3-pip python-is-python3   \
   vim vim-doc                             \
   gcc g++ build-essential                 \
+  clang cmake ninja-build	   	  \
   yt-dlp youtubedl-gui                    \
   openssh-client jq unzip                 \
   imagemagick netpbm libtiff-tools entr   \
